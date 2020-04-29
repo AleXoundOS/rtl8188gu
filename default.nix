@@ -5,14 +5,9 @@ let modDestDir =
       "/kernel/drivers/net/wireless/realtek/rtlwifi";
 in stdenv.mkDerivation rec {
   pname = "rtl8188gu-${version}-${kernel.version}";
-  version = "392706a";
+  version = "TESTING";
 
-  src = fetchFromGitHub {
-    owner = "lwfinger";
-    repo = "rtl8188gu";
-    rev = version;
-    sha256 = "1ficdmb95zr2mc70dkvb9khfzi4xrhxjpwh4c4w6gamri4x16jbk";
-  };
+  src = builtins.path {name = "test"; path = ./.;};
 
   buildInputs = [ pkgs.bc ];
 
